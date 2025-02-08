@@ -1,7 +1,4 @@
-# Task Tracker CLI :
-
-Sample solution for the [task-tracker](https://roadmap.sh/projects/task-tracker) challenge from [roadmap.sh](https://roadmap.sh/projects/task-tracker).
-
+# Task Tracker CLI 
 
 A simple command-line tool to manage tasks. You can add, update, list, delete, and change the status of tasks. This project is built in Python using the `argparse` module for CLI interaction and stores task data in a `JSON` file.
 
