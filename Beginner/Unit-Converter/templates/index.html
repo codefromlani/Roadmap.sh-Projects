@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+        }
+        .error {
+            background-color: #ffdddd;
+            border-left: 6px solid #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h1>Unit Converter</h1>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="unit_type">Select Type of Conversion:</label>
+            <select name="unit_type" id="unit_type" onchange="this.form.submit()">
+                <option value="length" {% if unit_type == 'length' %}selected{% endif %}>Length</option>
+                <option value="weight" {% if unit_type == 'weight' %}selected{% endif %}>Weight</option>
+                <option value="temperature" {% if unit_type == 'temperature' %}selected{% endif %}>Temperature</option>
+                <option value="volume" {% if unit_type == 'volume' %}selected{% endif %}>Volume</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="value">Value:</label>
+            <input type="number" step="any" id="value" name="value" value="{{ value }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="from_unit">From Unit:</label>
+            <select id="from_unit" name="from_unit" required>
+                {% if unit_type == 'length' %}
+                    {% for unit, _ in length_units.items() %}
+                        <option value="{{ unit }}" {% if from_unit == unit %}selected{% endif %}>
+                            {{ unit.capitalize() }}
+                        </option>
+                    {% endfor %}
+                {% elif unit_type == 'weight' %}
+                    {% for unit, _ in weight_units.items() %}
+                        <option value="{{ unit }}" {% if from_unit == unit %}selected{% endif %}>
+                            {{ unit.capitalize() }}
+                        </option>
+                    {% endfor %}
+                {% elif unit_type == 'temperature' %}
+                    {% for unit, _ in temperature_units.items() %}
+                        <option value="{{ unit }}" {% if from_unit == unit %}selected{% endif %}>
+                            {{ unit.capitalize() }}
+                        </option>
+                    {% endfor %}
+                {% elif unit_type == 'volume' %}
+                    {% for unit, _ in volume_units.items() %}
+                        <option value="{{ unit }}" {% if from_unit == unit %}selected{% endif %}>
+                            {{ unit.capitalize() }}
+                        </option>
+                    {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="to_unit">To Unit:</label>
+            <select id="to_unit" name="to_unit" required>
+                {% if unit_type == 'length' %}
+                    {% for unit, _ in length_units.items() %}
+                        <option value="{{ unit }}" {% if to_unit == unit %}selected{% endif %}>
+                            {{ unit.capitalize() }}
+                        </option>
+                    {% endfor %}
+                {% elif unit_type == 'weight' %}
+                    {% for unit, _ in weight_units.items() %}
+                        <option value="{{ unit }}" {% if to_unit == unit %}selected{% endif %}>
+                            {{ unit.capitalize() }}
+                        </option>
+                    {% endfor %}
+                {% elif unit_type == 'temperature' %}
+                    {% for unit, _ in temperature_units.items() %}
+                        <option value="{{ unit }}" {% if to_unit == unit %}selected{% endif %}>
+                            {{ unit.capitalize() }}
+                        </option>
+                    {% endfor %}
+                {% elif unit_type == 'volume' %}
+                    {% for unit, _ in volume_units.items() %}
+                        <option value="{{ unit }}" {% if to_unit == unit %}selected{% endif %}>
+                            {{ unit.capitalize() }}
+                        </option>
+                    {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result is not none %}
+    <div class="result {% if 'Error' in result|string %}error{% endif %}">
+        {% if 'Error' in result|string %}
+            <p>{{ result }}</p>
+        {% else %}
+            <p>{{ value }} {{ from_unit.capitalize() }} = {{ result }} {{ to_unit.capitalize() }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+</body>
+</html>
