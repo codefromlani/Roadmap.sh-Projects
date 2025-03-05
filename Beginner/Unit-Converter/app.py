@@ -71,51 +71,124 @@ def convert_units(value, from_unit, to_unit, unit_type):
     
     return None
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    return redirect(url_for('length_converter'))  
+
+
+@app.route('/length', methods=['GET', 'POST'])
+def length_converter():
     result = None
     value = 0
     from_unit = ''
     to_unit = ''
-    unit_type = 'length'
 
     if request.method == 'POST':
         try:
             value = float(request.form['value'])
             from_unit = request.form['from_unit']
             to_unit = request.form['to_unit']
-            unit_type = request.form['unit_type']
 
-            result = convert_units(value, from_unit, to_unit, unit_type)
+            result = convert_units(value, from_unit, to_unit, 'length')
             if result is not None:
                 result = round(result, 6)
 
         except Exception as e:
             result = f"Error: {str(e)}"
 
-        # return redirect(url_for('index', value=value, from_unit=from_unit, to_unit=to_unit, unit_type=unit_type, result=result))
-
-    if unit_type == 'length':
-        units = length_conversions
-    elif unit_type == 'weight':
-        units = weight_conversions
-    elif unit_type == 'temperature':
-        units = temperature_conversions
-    elif unit_type == 'volume':
-        units = volume_conversions
-    else:
-        units = length_conversions 
-
     return render_template(
-        'index.html',
+        'length.html',
         result=result,
         value=value,
         from_unit=from_unit,
         to_unit=to_unit,
-        unit_type=unit_type,
-        length_units=length_conversions,
-        weight_units=weight_conversions,
-        temperature_units=temperature_conversions,
+        length_units=length_conversions
+    )
+
+@app.route('/weight', methods=['GET', 'POST'])
+def weight_converter():
+    result = None
+    value = 0
+    from_unit = ''
+    to_unit = ''
+
+    if request.method == 'POST':
+        try:
+            value = float(request.form['value'])
+            from_unit = request.form['from_unit']
+            to_unit = request.form['to_unit']
+
+            result = convert_units(value, from_unit, to_unit, 'weight')
+            if result is not None:
+                result = round(result, 6)
+
+        except Exception as e:
+            result = f"Error: {str(e)}"
+
+    return render_template(
+        'weight.html',
+        result=result,
+        value=value,
+        from_unit=from_unit,
+        to_unit=to_unit,
+        weight_units=weight_conversions
+    )
+
+@app.route('/temperature', methods=['GET', 'POST'])
+def temperature_converter():
+    result = None
+    value = 0
+    from_unit = ''
+    to_unit = ''
+
+    if request.method == 'POST':
+        try:
+            value = float(request.form['value'])
+            from_unit = request.form['from_unit']
+            to_unit = request.form['to_unit']
+
+            result = convert_units(value, from_unit, to_unit, 'temperature')
+            if result is not None:
+                result = round(result, 6)
+
+        except Exception as e:
+            result = f"Error: {str(e)}"
+
+    return render_template(
+        'temperature.html',
+        result=result,
+        value=value,
+        from_unit=from_unit,
+        to_unit=to_unit,
+        temperature_units=temperature_conversions
+    )
+
+@app.route('/volume', methods=['GET', 'POST'])
+def volume_converter():
+    result = None
+    value = 0
+    from_unit = ''
+    to_unit = ''
+
+    if request.method == 'POST':
+        try:
+            value = float(request.form['value'])
+            from_unit = request.form['from_unit']
+            to_unit = request.form['to_unit']
+
+            result = convert_units(value, from_unit, to_unit, 'volume')
+            if result is not None:
+                result = round(result, 6)
+
+        except Exception as e:
+            result = f"Error: {str(e)}"
+
+    return render_template(
+        'volume.html',
+        result=result,
+        value=value,
+        from_unit=from_unit,
+        to_unit=to_unit,
         volume_units=volume_conversions
     )
 

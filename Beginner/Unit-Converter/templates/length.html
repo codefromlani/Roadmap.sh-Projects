@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Length Converter{% endblock %}
+
+{% block content %}
+    <h2>Length Converter</h2>
+
+    <form method="post">
+        <label for="value">Value:</label>
+        <input type="number" step="any" name="value" value="{{ value }}" required>
+
+        <label for="from_unit">From Unit:</label>
+        <select name="from_unit" required>
+            {% for unit in length_units %}
+                <option value="{{ unit }}" {% if from_unit == unit %}selected{% endif %}>{{ unit.capitalize() }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="to_unit">To Unit:</label>
+        <select name="to_unit" required>
+            {% for unit in length_units %}
+                <option value="{{ unit }}" {% if to_unit == unit %}selected{% endif %}>{{ unit.capitalize() }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result is not none %}
+        <div class="result">
+            <p>{{ value }} {{ from_unit.capitalize() }} = {{ result }} {{ to_unit.capitalize() }}</p>
+        </div>
+    {% endif %}
+
+{% endblock %}
