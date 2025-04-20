@@ -93,7 +93,7 @@ def login():
 
 @app.route("/admin/logout")
 def logout():
-    session.pop("loggin_in", None)
+    session.pop("logged_in", None)
     return redirect(url_for("home"))
 
 @app.route("/admin/dashboard")
