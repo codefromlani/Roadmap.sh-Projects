@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Article - My Blog{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h1>Add New Article</h1>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="post" action="{{ url_for('add_article') }}">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea name="content" id="content" class="form-control" rows="10" required></textarea>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Publish Article</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
