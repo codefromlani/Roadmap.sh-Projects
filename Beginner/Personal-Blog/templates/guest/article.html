@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} - My Blog{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="mb-4">
+            <a href="{{ url_for('home') }}" class="btn btn-outline-secondary">← Back to Home</a>
+        </div>
+
+        <article>
+            <h1 class="mb-3">{{ article.title }}</h1>
+            <p class="text-muted">Published on {{ article.date }}</p>
+            <hr>
+            <div class="article-content mt-4">
+                {{ article.content }}
+            </div>
+        </article>
+    </div>
+</div>
+{% endblock %}
