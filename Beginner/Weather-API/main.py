@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI, HTTPException, status, Request
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
@@ -15,7 +15,7 @@ load_dotenv()
 VISUAL_CROSSING_API_KEY = os.getenv("VISUAL_CROSSING_API_KEY")
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 REDIS_PORT = os.getenv("REDIS_PORT", 6379)
-REDIS_DB = int(os.getenv("REDIS_DB", 0)),
+REDIS_DB = int(os.getenv("REDIS_DB", 0))
 CACHE_EXPIRATION = int(os.getenv("CACHE_EXPIRATION", 43200))
 
 
@@ -38,18 +38,18 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 redis_client = redis.Redis(
     host=REDIS_HOST,
     port=REDIS_PORT,
-    password=REDIS_DB,
+    db=REDIS_DB,
     decode_responses=True
 )
 
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to the Weather API. Use /weather/{city_code} to get weather data"}
+    return {"message": "Welcome to the Weather API."}
 
 @app.get("/weather/{city}")
 @limiter.limit("5/minute")
-async def get_weather(city: str, units: Optional[str] = "metric"):
+async def get_weather(request: Request, city: str, units: Optional[str] = "metric"):
     """
     Get weather data for a specific city.
     Rate limit: 5 requests per minute.
@@ -60,7 +60,7 @@ async def get_weather(city: str, units: Optional[str] = "metric"):
             detail="Weather API key not configured"
         )
     
-    cache_key = f"weather:{city}: {units}"
+    cache_key = f"weather:{city}:{units}"
     cached_data = redis_client.get(cache_key)
 
     if cached_data:
