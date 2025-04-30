@@ -13,18 +13,16 @@ This is a simple number guessing game written in Python. The player has to guess
 ## Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/codefromlani/Roadmap.sh-Projects.git
-
-2. Navigate to the project directory:
-
-    cd beginner
-
-    cd number-guessing-game
+```bash
+git clone https://github.com/codefromlani/Roadmap.sh-Projects.git
+cd beginner
+cd number-guessing-game
+```
 
 3. Run the game using the following command:
-    ```bash
-    python number_guessing_game.py
+```bash
+python number_guessing_game.py
+```
 
 ## Usage
 

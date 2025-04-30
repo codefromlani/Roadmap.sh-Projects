@@ -14,20 +14,16 @@ A simple command-line tool to manage tasks. You can add, update, list, delete, a
 
 ## Requirements
 
-- Python 3.x
+- Python 3.12+
 
 ## Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/codefromlani/Roadmap.sh-Projects.git
-
-2. Navigate to the project directory:
-
-    cd beginner
-
-    cd task-tracker
-
+```bash
+git clone https://github.com/codefromlani/Roadmap.sh-Projects.git
+cd beginner
+cd task-tracker
+```
 
 ## Usage
 

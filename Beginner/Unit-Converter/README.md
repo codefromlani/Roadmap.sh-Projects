@@ -10,41 +10,34 @@ This is a simple web application built using Flask that allows users to convert 
 
 ## Requirements:
 
-- Python 3.x
+- Python 3.12+
 - Flask
 
 ## Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/codefromlani/Roadmap.sh-Projects.git
+```bash
+git clone https://github.com/codefromlani/Roadmap.sh-Projects.git
+cd beginner
+cd unit-converter
+```
 
-2. Navigate to the project directory:
+2. Create a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-    cd beginner
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-    cd unit-converter
-
-3. Create a virtual environment:
-    ```bash
-    python -m venv venv
-
-4. Activate the virtual environment:
-
-- On Windows:
-    ```bash
-    venv\Scripts\activate
-
-- On macOS/Linux:
-    ```bash
-    source venv/bin/activate
-
-5. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-
-## Running the App
-    python app.py
+4. Run the application:
+```bash
+python app.py
+```
+5. Access the blog at http://127.0.0.1:5000
 
 ## Usage
 

@@ -15,16 +15,12 @@ A simple command-line interface (CLI) application to help you track and manage y
 
 ## Installation
 
-Make sure you have Python 3.x installed
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/codefromlani/Roadmap.sh-Projects.git
-
-2. Navigate to the project directory:
-
-    cd beginner
-
-    cd expense-tracker
+```bash
+git clone https://github.com/codefromlani/Roadmap.sh-Projects.git
+cd beginner
+cd expense-tracker
+```
 
 ## Usage
 

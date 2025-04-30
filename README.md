@@ -14,3 +14,6 @@ Sample solution for the [unit-converter](https://roadmap.sh/projects/unit-conver
 
 
 Sample solution for the [personal-blog](https://roadmap.sh/projects/personal-blog) challenge from [roadmap.sh](https://roadmap.sh/).
+
+
+Sample solution for the [weather-api](https://roadmap.sh/projects/weather-api-wrapper-service) challenge from [roadmap.sh](https://roadmap.sh/).

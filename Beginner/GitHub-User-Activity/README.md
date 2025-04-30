@@ -11,24 +11,22 @@ A simple command-line interface (CLI) to fetch and display recent GitHub activit
 
 ## Requirements
 
-- Python 3.x
+- Python 3.12+
 - requests library
 
 ## Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/codefromlani/Roadmap.sh-Projects.git
+```bash
+git clone https://github.com/codefromlani/Roadmap.sh-Projects.git
+cd beginner
+cd github-user-activity
+```
 
-2. Navigate to the project directory:
-
-    cd beginner
-
-    cd github-user-activity
-
-## Install the required dependencies:
-
-    pip install requests
+2. Install dependencies:
+```bash
+pip install requests
+```
 
 ## Usage
 
