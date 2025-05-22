@@ -25,55 +25,69 @@ cd expense-tracker
 ## Usage
 
 1. Adding an Expense
-    ```bash
-    python main.py add "Expense Description" amount category
+```bash
+python main.py add "Expense Description" amount category
+```
 
 Example:
-    ```bash
-    python main.py add "Grocery Shopping" 150.50 Food
+```bash
+python main.py add "Grocery Shopping" 150.50 Food
+```
 
 2. Updating an Expense
-    ```bash
-    python main.py update expense_id --new_description "New Description" --new_amount amount --new_category category
+```bash
+python main.py update expense_id --new_description "New Description" --new_amount amount --new_category category
+```
 
 Example:
-    ```bash
-    python main.py update abc123 --new_amount 200.00 --new_category Food
+```bash
+python main.py update abc123 --new_amount 200.00 --new_category Food
+```
 
 3. Deleting an Expense
-    ```bash
-    python main.py delete expense_id
+```bash
+python main.py delete expense_id
+```
 
 4. Viewing All Expenses
-    ```bash
-    python main.py view
+```bash
+python main.py view
+```
 
 5. Viewing Expense Summary
-    ```bash
-    python main.py summary
+```bash
+python main.py summary
+```
 
 6. Viewing Expenses by Category
-    ```bash
-    python main.py view_by_category category
+```bash
+python main.py view_by_category category
+```
 
 Example:
-    ```bash
-    python main.py view_by_category Food
+```bash
+python main.py view_by_category Food
+```
 
 7. Setting Monthly Budget
-    ```bash
-    python main.py budgets month amount
+```bash
+python main.py budgets month amount
+```
 
 Example:
-    ```bash
-    python main.py budgets 2 2500.00
+```bash
+python main.py budgets 2 2500.00
+```
 
 8. Viewing Monthly Budget Summary
-    ```bash
-    python main.py budgets_summary month
+```bash
+python main.py budgets_summary month
+```
+
 Example:
-    ```bash
-    python main.py budgets_summary 2
+```bash
+python main.py budgets_summary 2
+```
 
 9. Categories
 - Available expense categories:

@@ -33,17 +33,19 @@ pip install requests
 Run the program from the command line, providing a GitHub username and an optional event filter.
 
 - Syntax
-
-    python github_activity.py <username> [--event-type <event_type>]
+```bash
+python github_activity.py <username> [--event-type <event_type>]
+```
 
 - Example:
     Fetch all recent activity for a user:
-
-        python github_activity.py kamranahmedse
-
+```bash
+python github_activity.py kamranahmedse
+```
     Fetch only PushEvent activity for a user:
-
-        python github_activity.py kamranahmedse --event-type PushEvent
+```bash
+python github_activity.py kamranahmedse --event-type PushEvent
+```
 
 - Output:
 The program will display recent events in the terminal. For example:

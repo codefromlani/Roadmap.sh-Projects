@@ -73,4 +73,3 @@ Once the server is running, you can access the interactive API documentation at:
 
 ### Delete a blog post
 - `DELETE /posts/{post_id}`
-

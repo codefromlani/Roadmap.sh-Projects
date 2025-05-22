@@ -30,36 +30,41 @@ cd task-tracker
 You can run the application directly from the command line using Python. Below are the available commands:
 
 1. Add a new task:
-
-    python task_cli.py add "Task description" todo
+```bash
+python task_cli.py add "Task description" todo
+```
 
 2. List all tasks:
-
-    python task_cli.py list
+```bash
+python task_cli.py list
+```
 
 3. Update an existing task:
-
-    python task_cli.py update <task_id> "New task description" 
-
-    <task_id>: The ID of the task you want to update.
+```bash
+python task_cli.py update <task_id> "New task description" 
+```
+<task_id>: The ID of the task you want to update.
 
 4. Delete an existing task:
-
-    python task_cli.py delete <task_id>
+```bash
+python task_cli.py delete <task_id>
+```
 
 5. Mark a task as in-progress:
-
-    python task_cli.py mark_in_progress_task <task_id>
+```bash
+python task_cli.py mark_in_progress_task <task_id>
+```
 
 6. Mark a task as done:
-
-    python task_cli.py mark_done_task <task_id>
+```bash
+python task_cli.py mark_done_task <task_id>
+```
 
 7. Filter tasks by status:
-
-    python task_cli.py list_task_status <status>
-
-    <status>: Filter tasks by their current status (todo, in-progress, done).
+```bash
+python task_cli.py list_task_status <status>
+```
+<status>: Filter tasks by their current status (todo, in-progress, done).
 
 
 ## Data Storage

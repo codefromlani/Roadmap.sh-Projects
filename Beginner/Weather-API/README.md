@@ -43,10 +43,12 @@ pip install -r requirements.txt
 ## Running the API
 
 1. Make sure Redis is running
+
 2. Start the FastAPI server:
-   ```bash
-   uvicorn main:app --reload
-   ```
+```bash
+uvicorn main:app --reload
+```
+
 3. The API will be available at `http://localhost:8000`
 
 ## API Endpoints
