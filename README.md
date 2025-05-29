@@ -17,3 +17,5 @@ Sample solution for the [personal-blog](https://roadmap.sh/projects/personal-blo
 
 
 Sample solution for the [weather-api](https://roadmap.sh/projects/weather-api-wrapper-service) challenge from [roadmap.sh](https://roadmap.sh/).
+
+Sample solution for the [blogging-platform-api](https://roadmap.sh/projects/blogging-platform-api) challenge from [roadmap.sh](https://roadmap.sh/).
