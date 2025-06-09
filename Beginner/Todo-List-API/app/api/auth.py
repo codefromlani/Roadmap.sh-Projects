@@ -6,7 +6,7 @@ from ..schemas.user import Token, UserCreate, UserLogin
 from ..db.database import get_db
 from ..db.models.user import User
 from ..core.security import (
-    get_password_hash,
+    hash_password,
     ACCESS_TOKEN_EXPIRE_MINUTES,
     create_access_token,
     verify_password
@@ -23,7 +23,7 @@ async def register_user(user: UserCreate, db: Session = Depends(get_db)):
             detail="Email already registered"
         )
     
-    hashed_password = get_password_hash(user.password)
+    hashed_password = hash_password(user.password)
     new_user = User(
         name=user.name,
         email=user.email,
