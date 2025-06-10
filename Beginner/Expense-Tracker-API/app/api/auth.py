@@ -15,7 +15,10 @@ router = APIRouter(prefix="/users", tags=["users"])
 async def register(user: UserCreate, db: Session = Depends(get_db)):
     db_user = db.query(User).filter(User.email == user.email).first()
     if db_user:
-        raise HTTPException(status_code=400, detail="Email already registered")
+        raise HTTPException(
+            status_code=400, 
+            detail="Email already registered"
+        )
     
     hashed_password = hash_password(user.password)
     db_user = User(email=user.email, hashed_password=hashed_password)
@@ -32,12 +35,6 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid email or password"
-        )
-    
-    if not db_user.is_verified:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Please verify your email before logging in"
         )
     
     if not verify_password(form_data.password, db_user.hashed_password):
