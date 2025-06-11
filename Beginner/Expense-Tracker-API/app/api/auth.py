@@ -26,6 +26,13 @@ async def register(user: UserCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(db_user)
 
+    access_token = create_access_token(data={"sub": db_user.email}, expires_delta=timedelta(minutes=30))
+
+    return {
+        "access_token": access_token,
+        "token_type": "bearer",
+    }
+
 
 @router.post("/login", response_model=Token)
 def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
