@@ -2,16 +2,8 @@ from pydantic import BaseModel, ConfigDict
 import enum
 from typing import Optional
 from datetime import datetime
+from ..db.models.expense import ExpenseCategory
 
-
-class ExpenseCategory(enum.Enum):
-    GROCERIES = "groceries"
-    LEISURE = "leisure"
-    ELECTRONICS = "electronics"
-    UTILITIES = "utilities"
-    CLOTHING = "clothing"
-    HEALTH = "health"
-    OTHERS = "others"
 
 class ExpenseCreate(BaseModel):
     amount: float
